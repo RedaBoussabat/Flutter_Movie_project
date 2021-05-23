@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "movieapp",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define=movieApiKey=3affc964a28ed30c8764bb11315ce69f"
+            ]
+        }
+    ]
+}
