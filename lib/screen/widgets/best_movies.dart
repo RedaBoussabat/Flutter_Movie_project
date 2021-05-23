@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:movieapp/bloc/get_movies_bloc.dart';
@@ -161,6 +162,19 @@ class _BestMoviesState extends State<BestMovies> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         PrettyText(text :movies[index].rating.toString(), color: Colors.white,),
+                        RatingBar.builder(
+                          itemSize: 15.0,
+                          initialRating: movies[index].rating / 2,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
+                          onRatingUpdate: (rating) {
+                            print(rating);
+                          },
+                          itemBuilder: (context, _) => Icon(EvaIcons.star,color: Colors.amber),
+                        ),
                         SizedBox(
                           width: 5.0,
                         ),

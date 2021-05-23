@@ -141,7 +141,7 @@ class _NowPlayingState extends State<NowPlaying> {
                               0.9
                             ],
                             colors: [
-                              Colors.blueGrey.withOpacity(1.0),
+                              Colors.blueGrey.withOpacity(0.8),
                               Colors.blueGrey.withOpacity(0.0)
                             ]),
                       ),
