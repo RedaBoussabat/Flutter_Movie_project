@@ -21,20 +21,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[700],
+        backgroundColor: Colors.blueGrey,
         centerTitle: true,
-        leading: Icon(EvaIcons.menu2Outline, color: Colors.white,),
-        title: Text("Movie Star"),
+        title: PrettyText(text :"Movie Star", color: Colors.white,size: 35,),
         actions: <Widget>[
-          IconButton(
-              onPressed: () {},
-              icon: Icon(EvaIcons.searchOutline, color: Colors.white,)
-          ),
-          TextButton(
+          TextButton.icon(
               onPressed: () async {
                 await _authService.signOut();
               },
-              child: PrettyText(text: 'Log out', color: Colors.white,)
+              icon: Icon(Icons.person, color: Colors.white,),
+              label: PrettyText(text: 'Log out', color: Colors.white,),
           ),
         ],
       ),

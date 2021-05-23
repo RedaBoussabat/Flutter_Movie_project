@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movieapp/bloc/get_now_playing_bloc.dart';
 import 'package:movieapp/entities/movie.dart';
 import 'package:movieapp/entities/movie_response.dart';
+import 'package:movieapp/screen/home/detail.dart';
 import 'package:page_indicator/page_indicator.dart';
 
 class NowPlaying extends StatefulWidget {
@@ -80,7 +81,7 @@ class _NowPlayingState extends State<NowPlaying> {
               children: <Widget>[
                 Text(
                   "No More Movies",
-                  style: TextStyle(color: Colors.black45),
+                  style: TextStyle(color: Colors.blueGrey),
                 )
               ],
             )
@@ -105,7 +106,12 @@ class _NowPlayingState extends State<NowPlaying> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MovieDetailScreen(movie: movies[index]),
+                    ),
+                  );
                 },
                 child: Stack(
                   children: <Widget>[

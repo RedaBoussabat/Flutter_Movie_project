@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:movieapp/bloc/get_movies_bloc.dart';
 import 'package:movieapp/entities/movie.dart';
 import 'package:movieapp/entities/movie_response.dart';
+import 'package:movieapp/screen/home/detail.dart';
 import 'package:movieapp/utils/pretty_text.dart';
 
 class BestMovies extends StatefulWidget {
@@ -91,7 +92,7 @@ class _BestMoviesState extends State<BestMovies> {
               children: <Widget>[
                 Text(
                   "No More Movies",
-                  style: TextStyle(color: Colors.black45),
+                  style: TextStyle(color: Colors.blueGrey),
                 )
               ],
             )
@@ -100,7 +101,7 @@ class _BestMoviesState extends State<BestMovies> {
       );
     } else
       return Container(
-        height: 270.0,
+        height: 400.0,
         padding: EdgeInsets.only(left: 10.0),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -114,7 +115,12 @@ class _BestMoviesState extends State<BestMovies> {
               ),
               child: GestureDetector(
                 onTap: () {
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MovieDetailScreen(movie: movies[index]),
+                    ),
+                  );
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,8 +128,8 @@ class _BestMoviesState extends State<BestMovies> {
                     Hero(
                       tag: movies[index].id,
                       child: Container(
-                          width: 120.0,
-                          height: 180.0,
+                          width: 150.0,
+                          height: 200.0,
                           decoration: new BoxDecoration(
                             borderRadius:
                             BorderRadius.all(Radius.circular(2.0)),
